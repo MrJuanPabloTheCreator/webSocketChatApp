@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: -webkit-fill-available;
+}
+body {
+    background-color: #202329;
+    font-family: 'Roboto', sans-serif;
+    height: -webkit-fill-available;
+}
+
+#root {
+    height: 100%;
+    width: 100vw;
+    /* max-width: 1920px; */
+    display: flex;
+}
