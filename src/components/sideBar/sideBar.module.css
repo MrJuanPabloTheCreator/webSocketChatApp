@@ -97,6 +97,28 @@
     color: white;
 }
 
+.AIbutton {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    background-color: transparent;
+    color: rgb(120, 120, 120);
+    font-size: 1rem;
+    font-weight: 600;
+    color: #24f4ff;
+}
+.AIbutton:hover {
+    background-color: rgb(68, 68, 68);
+    color: #24f4ff;
+}
+.activeAIButton {
+    background-color: rgb(68, 68, 68);
+}
+
 .roomButton {
     border: none;
     padding: 0.5rem;
@@ -110,7 +132,7 @@
     color: white;
 }
 
-.userRoomsContainer div {
+.roomButton div {
     display: flex;
     gap: 0.75rem;
     font-size: 1rem;

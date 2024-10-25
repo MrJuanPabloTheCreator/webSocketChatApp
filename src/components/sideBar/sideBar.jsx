@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import styles from './SideBar.module.css';
 import { UserContext } from '../../userContext';
 import toast from 'react-hot-toast';
-import { FaUser } from 'react-icons/fa';
+import { FaRobot, FaUser } from 'react-icons/fa';
 
 const SideBar = () => {
     const { ws, isSocketActive, user, connect, disconnect, notifications, activeChat, openChat } = useContext(UserContext);
@@ -48,7 +48,6 @@ const SideBar = () => {
             const userRoomsResponse = await getUserRoomsResponse.json();
             if(userRoomsResponse.rooms.length > 0){
                 setUserRooms(userRoomsResponse.rooms)
-                console.log(userRoomsResponse.rooms)
             }
         } else {
             const userRoomsResponse = await getUserRoomsResponse.json();
@@ -61,10 +60,6 @@ const SideBar = () => {
         setUserRooms([])
     }
 
-    const handleOpenRoom = (roomId) => {
-        openChat(roomId)
-    }
-
     useEffect(() => {
         console.log('Active Chat: ', activeChat)
         if(user){
@@ -72,34 +67,44 @@ const SideBar = () => {
         }
     }, [user])
 
-    return (
-        <div className={`${styles.sideBarContainer} ${activeChat !== null && styles.sidebarActive}`}>
-            <span className={styles.socketConnection} style={isSocketActive ? {backgroundColor: 'green'}:{backgroundColor: 'red'}}/>
-            {user ? (
-                <div>
-                    <div className={styles.userHeader}>
-                        <h1>{user.username}</h1>
-                        <button onClick={handleDisconnect}>Disconnect</button>
-                    </div>
-                    <div className={styles.addContactsContainer}>
-                        <h2>Add Contacts</h2>
-                        <form onSubmit={(e) => handleAddConntact(e)}>
-                            <input placeholder='Enter conntact username' value={contactUsername} onChange={e => setContactUsername(e.target.value)}/>
-                            <button>Add</button>
-                        </form>
-                    </div>
-                </div>
-            ):(
+    if(!user){
+        return (
+            <div className={styles.sideBarContainer}>
                 <form onSubmit={(e) => handleConnect(e)} className={styles.connectContainer}>
                     <input placeholder='Enter desired username' value={username} onChange={e => setUsername(e.target.value)}/>
                     <button style={{backgroundColor: 'red'}}>Connect</button>
                 </form>
-            )}
-            {user && userRooms.length > 0 && 
-                <div className={styles.userRoomsContainer}>
-                    <h2>Rooms</h2>
-                    {userRooms.map((room, index) => (
-                        <button key={index} onClick={() => handleOpenRoom(room.roomId)} className={`${styles.roomButton} ${activeChat === room.roomId ? styles.activeButton : ''}`}>
+            </div>
+        )
+    }
+
+    return (
+        <div className={`${styles.sideBarContainer} ${activeChat !== null && styles.sidebarActive}`}>
+            <span className={styles.socketConnection} style={isSocketActive ? {backgroundColor: 'green'}:{backgroundColor: 'red'}}/>
+            <div>
+                <div className={styles.userHeader}>
+                    <h1>{user.username}</h1>
+                    <button onClick={handleDisconnect}>Disconnect</button>
+                </div>
+                <div className={styles.addContactsContainer}>
+                    <h2>Add Contacts</h2>
+                    <form onSubmit={(e) => handleAddConntact(e)}>
+                        <input placeholder='Enter conntact username' value={contactUsername} onChange={e => setContactUsername(e.target.value)}/>
+                        <button>Add</button>
+                    </form>
+                </div>
+            </div>
+            <div className={styles.userRoomsContainer}>
+                <h2>Contacts</h2>
+                {userRooms[0] && userRooms[0].users.length === 0 && 
+                    <button className={`${styles.AIbutton} ${activeChat === userRooms[0].roomId ? styles.activeAIButton : ''}`} onClick={() => openChat(activeChat === userRooms[0].roomId ? null : userRooms[0].roomId)}>
+                        <FaRobot size={24}/>
+                        <p>Juan Pablo AI</p>
+                    </button>
+                }
+                {user && userRooms.length > 1 && 
+                    userRooms.map((room, index) => (
+                        <button key={index} onClick={() => openChat(room.roomId)} className={`${styles.roomButton} ${activeChat === room.roomId ? styles.activeButton : ''}`}>
                             {room.users.map((roomUser) => (
                                 <div key={roomUser}>
                                     <FaUser size={20}/>
@@ -107,9 +112,9 @@ const SideBar = () => {
                                 </div>
                             ))}
                         </button>
-                    ))}
-                </div>
-            }
+                    ))
+                }
+            </div>
         </div>
     )
 }
