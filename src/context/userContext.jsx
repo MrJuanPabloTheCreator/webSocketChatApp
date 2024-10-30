@@ -1,8 +1,8 @@
 import React, { createContext, useState, useEffect, useRef } from 'react';
 import toast from 'react-hot-toast';
 
-import createWebSocket from './socket';
-import validateToken from './validateToken';
+import createWebSocket from '../lib/socket';
+import validateToken from '../lib/validateToken';
 
 export const UserContext = createContext();
 
@@ -89,9 +89,9 @@ export const UserProvider = ({ children }) => {
         );
     };
 
-    const disconnect = () => {
+    const disconnect = async () => {
         if (ws) {
-            ws.close();
+            await ws.close();
         }
     };
 

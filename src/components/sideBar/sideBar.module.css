@@ -109,11 +109,10 @@
     color: rgb(120, 120, 120);
     font-size: 1rem;
     font-weight: 600;
-    color: #24f4ff;
+    color: white;
 }
 .AIbutton:hover {
     background-color: rgb(68, 68, 68);
-    color: #24f4ff;
 }
 .activeAIButton {
     background-color: rgb(68, 68, 68);
@@ -156,7 +155,7 @@
 
 @media (min-width: 601px) {
     .sideBarContainer {
-        width: 30rem;
+        width: 25rem;
         border-right: 2px solid rgba(255, 255, 255, 0.2);
     }
 }

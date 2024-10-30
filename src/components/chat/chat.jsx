@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 
 import styles from './chat.module.css'
-import { UserContext } from '../../userContext';
+import { UserContext } from '../../context/userContext';
 import { FaLocationArrow } from 'react-icons/fa';
 import { TiArrowBack } from 'react-icons/ti';
 
@@ -36,7 +36,7 @@ const Chat = () => {
         if(activeChat){
             loadChat();
         }
-    }, [activeChat]); 
+    }, [activeChat]);
 
     return (
         <div className={`${styles.pageContainer} ${activeChat === null && styles.chatActive}`}>
