@@ -19,7 +19,7 @@ const Hero = ({ handlePagePush }) => {
                 <p>ChatPro allows you to message your contacts in real-time, enjoy secure conversations, and interact with our intelligent chatbot to stay on top of your tasks.</p>
                 <button onClick={() => handlePagePush('/login')}>Get Started</button>
             </aside>
-            <img src='../../../assets/webSocketAppIphones.png' alt='Demo Image' height={500}/>
+            <img src='/webSocketAppIphones.png' alt='Demo Image' height={500}/>
         </div>
     </section>
   )

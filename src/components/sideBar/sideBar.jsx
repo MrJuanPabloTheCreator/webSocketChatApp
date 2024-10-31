@@ -92,7 +92,7 @@ const SideBar = () => {
                 <h2>Contacts</h2>
                 {userRooms[0] && userRooms[0].roomId &&
                     <button className={`${styles.AIbutton} ${activeChat === userRooms[0].roomId ? styles.activeAIButton : ''}`} onClick={() => openChat(activeChat === userRooms[0].roomId ? null : userRooms[0].roomId)}>
-                        <img src='../../../assets/JP.jpg' alt='JP' height={35} width={35} style={{ borderRadius: 17.5 }}/>
+                        <img src='/JP.jpg' alt='JP' height={35} width={35} style={{ borderRadius: 17.5 }}/>
                         <p>Juan Pablo AI</p>
                     </button>
                 }
