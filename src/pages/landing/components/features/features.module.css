@@ -1,0 +1,32 @@
+.featuresContainer {
+    color:rgb(120, 120, 120);
+    display: flex;
+    gap: 1rem;
+}
+
+.featureCard {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 0.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 0.075);
+    transition: transform 0.3s ease;
+}
+.featureCard h3 {
+    color:white;
+}
+
+.featureCard .icon {
+    display: flex;
+    color: rgba(137, 43, 226, 0.75);
+    justify-content: center;
+    width: 100%;
+    padding-bottom: 1.5rem;
+}
+
+.featureCard:hover {
+    transform: scale(1.05);
+}

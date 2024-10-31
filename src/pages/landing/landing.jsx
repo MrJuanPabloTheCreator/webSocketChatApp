@@ -1,40 +1,54 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import SignIn from '../signIn/signIn';
+import Hero from './components/hero/hero.jsx'
+import Features from './components/features/features.jsx'
 import styles from "./landing.module.css"
 
 const Landing = () => {
-  const [showSignIn, setShowSignIn] = useState(false);
+  const handlePagePush = (param) => {
+    history.pushState({}, "", param);
+    setCurrentComponent(determineComponent)
+  }
+
+  const determineComponent = () => {
+    switch (window.location.pathname) {
+      case '/':
+        return <Lpage handlePagePush={handlePagePush}/>;
+    
+      case '/login':
+        return <SignIn handlePagePush={handlePagePush}/>;
+    
+      default:
+        return <Lpage handlePagePush={handlePagePush} />;
+    }
+  }
+
+  const [currentComponent, setCurrentComponent] = useState(determineComponent);
+
+  window.addEventListener('popstate', () => setCurrentComponent(determineComponent))
+
+  useEffect(() => {
+    
+  }, [currentComponent])
+  
 
   return (
     <div style={{ flex: 1 }}>
-      {showSignIn ? (
-        <SignIn setShowSignIn={setShowSignIn}/>
-      ) : (
-        <div className={styles.landingContainer}>
-          <section>
-            <nav className={styles.navbar}> 
-              <span>JPChat</span>
-              <button>
-                Login
-              </button>
-            </nav>
-            <div className={styles.landingContent}>
-              <div>
-                <h1>Stay Connected, Anytime, Anywhere</h1>
-                <p>ChatPro allows you to message your contacts in real-time, enjoy secure conversations, and interact with our intelligent chatbot to stay on top of your tasks.</p>
-                <button onClick={() => setShowSignIn(true)}>Get Started</button>
-              </div>
-              <img src='../../../assets/webSocketAppIphones.png' alt='Demo Image' height={500}/>
-            </div>
-          </section>
-          <section>
-            Details
-          </section>
-        </div>
-      )}
+      {currentComponent}
     </div>
   );
 };
 
 export default Landing;
+
+const Lpage = ({ handlePagePush }) => {
+  return (
+    <div className={styles.landingContainer}>
+      <div className={styles.gradient1}/>
+      <div className={styles.gradient2}/>
+      <Hero handlePagePush={handlePagePush}/>
+      <Features/>
+    </div>
+  )
+}

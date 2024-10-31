@@ -1,7 +1,9 @@
 import React, { useContext, useState } from 'react'
-import { UserContext } from '../../context/userContext';
 
-const SignIn = ({setShowSignIn}) => {
+import { UserContext } from '../../context/userContext';
+import styles from './signIn.module.css'
+
+const SignIn = ({ handlePagePush }) => {
     const { connect } = useContext(UserContext);
     const [username, setUsername] = useState('')
 
@@ -13,14 +15,12 @@ const SignIn = ({setShowSignIn}) => {
     }
 
     return (
-        <div>
-            <button onClick={() => setShowSignIn(false)}>Go back</button>
-            <div>
-                <form onSubmit={e => handleConnect(e)}>
-                    <input placeholder='Enter desired username' value={username} onChange={e => setUsername(e.target.value)}/>
-                    <button style={{backgroundColor: 'red'}}>Connect</button>
-                </form>
-            </div>
+        <div className={styles.signInContainer}>
+            {/* <button onClick={() => handlePagePush('/')}>Go back</button> */}
+            <form onSubmit={e => handleConnect(e)}>
+                <input placeholder='Enter desired username' value={username} onChange={e => setUsername(e.target.value)}/>
+                <button>Connect</button>
+            </form>
         </div>
     )
 }

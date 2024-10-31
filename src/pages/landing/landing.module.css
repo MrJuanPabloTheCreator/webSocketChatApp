@@ -1,5 +1,34 @@
+.gradient1 {
+    position: absolute;
+    top: -20rem;
+    left: -25rem;
+    width: 50rem;
+    height: 50rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(138, 43, 226, 0.6), transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+    /* clip-path: circle(50% at center); */
+}
+
+.gradient2 {
+    position: absolute;
+    bottom: -20rem;
+    right: -10rem;
+    width: 70rem;
+    height: 70rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(138, 43, 226, 0.6), transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+    /* clip-path: circle(50% at center); */
+}
+
 .landingContainer {
     position: relative;
+    overflow-x: hidden;
     height: 100%;
     width: 100%;
     max-width: 1920px;
@@ -12,61 +41,9 @@
 .landingContainer section {
     min-height: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.navbar {
-    padding: 1rem 0rem;
     width: 100%;
     display: flex;
-    justify-content: space-between;
-}
-.navbar span {
-    color: white;
-    font-size: 1.5rem;
-    font-weight: 600;
-}
-.navbar button {
-    color: white;
-    background-color:darkmagenta;
-    padding: 0.5rem 1rem;
-    border-radius: 1rem;
-    border: none;
-    font-size: 1rem;
-    font-weight: 600;
-    font-family: 'Roboto', sans-serif;
-    cursor: pointer;
-}
-
-.landingContent {
-    display: flex;
-    flex: 1;
-    align-items: center;
-    justify-content: space-between;
-}
-.landingContent div {
-    width: 55%;
-    display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-}
-.landingContent h1 {
-    color: white;
-    font-size: 3rem;
-}
-.landingContent p {
-    color: rgba(255, 255, 255, 0.395);
-}
-.landingContent button {
-    color: white;
-    background-color:darkmagenta;
-    padding: 0.75rem 1rem;
-    border-radius: 1rem;
-    border: none;
-    font-weight: 600;
-    font-family: 'Roboto', sans-serif;
-    cursor: pointer;
+    align-items: center;
+    justify-content: center;
 }

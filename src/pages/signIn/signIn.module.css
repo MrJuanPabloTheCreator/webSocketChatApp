@@ -1,0 +1,32 @@
+.signInContainer {
+    height: 100%;
+    width: 100%;
+    max-width: 1920px;
+    /* padding: 0rem 10rem; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.signInContainer form {
+    width: 15rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.signInContainer form input {
+    padding: 0.5rem;
+    background-color: transparent;
+    color: white;
+    border: rgb(73, 73, 73) 2px solid;
+    border-radius: 0.5rem;
+}
+
+.signInContainer form button {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    color: white;
+    background-color: blueviolet;
+}
