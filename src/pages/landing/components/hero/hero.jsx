@@ -4,7 +4,9 @@ import styles from "./hero.module.css"
 
 const Hero = ({ handlePagePush }) => {
   return (
-    <section>
+    <section className={styles.heroSection}>
+        <div className={styles.gradient1}/>
+        <div className={styles.gradient2}/>
         <nav className={styles.navbar}> 
             <span>JPChat</span>
             <button onClick={() => handlePagePush('/login')}>

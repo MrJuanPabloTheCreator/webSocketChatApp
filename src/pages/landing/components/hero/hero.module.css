@@ -1,3 +1,40 @@
+.gradient1 {
+    position: absolute;
+    top: -20rem;
+    left: -25rem;
+    width: 50rem;
+    height: 50rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(138, 43, 226, 0.6), transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+    /* clip-path: circle(50% at center); */
+}
+
+.gradient2 {
+    position: absolute;
+    bottom: -20rem;
+    right: -20rem;
+    width: 70rem;
+    height: 70rem;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(138, 43, 226, 0.6), transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+    /* clip-path: circle(50% at center); */
+}
+
+.heroSection {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .navbar {
     padding: 1rem 0rem;
     width: 100%;
@@ -28,11 +65,10 @@
     justify-content: space-between;
 }
 .landingContent aside {
-    width: 55%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
 }
 .landingContent h1 {
     color: white;
@@ -56,4 +92,44 @@
 }
 .landingContent button:hover {
     transform: scale(1.1);
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        padding: 0rem;
+    }
+    .landingContent {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .gradient1 {
+        top: -10rem;
+        left: -15rem;
+        width: 30rem;
+        height: 30rem;
+    }
+    .gradient2 {
+        bottom: -10rem;
+        right: -12.5rem;
+        width: 50rem;
+        height: 50rem;
+    }
+}
+
+@media (min-width: 601px) {
+    .heroSection {
+        min-height: 100vh;
+    }
+    .landingContent aside {
+        width: 55%;
+        gap: 2rem;
+    }
+    /* .gradient1 {
+        top: -20rem;
+        left: -25rem;
+    }
+    .gradient2 {
+        bottom: -20rem;
+        right: -10rem;
+    } */
 }

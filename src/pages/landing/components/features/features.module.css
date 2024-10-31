@@ -1,7 +1,32 @@
+.featuresSection {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .featuresContainer {
     color:rgb(120, 120, 120);
     display: flex;
     gap: 1rem;
+}
+
+@media (max-width: 600px) {
+    .featuresContainer {
+        flex-direction: column;
+        padding-bottom: 1rem;
+    }
+}
+
+@media (min-width: 601px) {
+    .featuresSection {
+        min-height: 80%;
+    }
+    .featureCard:hover {
+        transform: scale(1.05);
+    }
 }
 
 .featureCard {
@@ -25,8 +50,4 @@
     justify-content: center;
     width: 100%;
     padding-bottom: 1.5rem;
-}
-
-.featureCard:hover {
-    transform: scale(1.05);
 }

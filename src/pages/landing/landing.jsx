@@ -34,7 +34,7 @@ const Landing = () => {
   
 
   return (
-    <div style={{ flex: 1 }}>
+    <div style={{ display: 'flex', justifyContent: 'center'}}>
       {currentComponent}
     </div>
   );
@@ -45,8 +45,6 @@ export default Landing;
 const Lpage = ({ handlePagePush }) => {
   return (
     <div className={styles.landingContainer}>
-      <div className={styles.gradient1}/>
-      <div className={styles.gradient2}/>
       <Hero handlePagePush={handlePagePush}/>
       <Features/>
     </div>

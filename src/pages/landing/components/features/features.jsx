@@ -25,7 +25,7 @@ const featuresConstants = [
 
 const Features = () => {
   return (
-    <section style={{ height: '80%', minHeight: '80%', position: 'relative'}}>
+    <section className={styles.featuresSection}>
       <div className={styles.featuresContainer}>
         {featuresConstants.map((feature, index) => (
           <div key={index} className={styles.featureCard}>

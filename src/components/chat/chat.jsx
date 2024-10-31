@@ -43,7 +43,6 @@ const Chat = () => {
             <span className={styles.socketConnection} style={isSocketActive ? {backgroundColor: 'green'}:{backgroundColor: 'red'}}/>
             {activeChat ? (
                 <div className={styles.chatContainer}>
-                    <h1>Chat</h1>
                     <button className={styles.goBackButton} onClick={() => openChat(null)}><TiArrowBack size={28}/></button>
                     <div className={styles.chatContent}>
                         {previousMessages.length > 0 && previousMessages.map((messageData, index) => (
